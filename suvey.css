@@ -1,0 +1,63 @@
+body{
+    background-color:lightcyan;
+    font-family: "Times New Roman";
+
+}
+.h1{
+    text-align: center;
+}
+.text1{
+    margin-left: 320px;
+    margin-right: 210px;
+    background-color:white;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+.text2{
+    margin-left: 320px;
+    margin-right: 210px;
+    background-color:white;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+.div1{
+    margin-left: 320px;
+    margin-right: 210px;
+    background-color:white;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+
+}
+.check{
+    background-color: forestgreen;
+}
+.radio1{
+margin-left: 320px;
+margin-right: 210px;
+background-color:white;
+padding-bottom: 10px;
+    padding-left: 20px;
+border-radius: 10px;
+padding-top: 10px;
+}
+
+textarea{
+    white-space:pre-line;
+    overflow: hidden;
+
+}
+.techSupport, .howSatisfied, .feedback, .likelyRecom,.oftenTech, .service, .innovation, #team,
+#values,.satisfaction,.waitingTime,#easeOfUse,#Nputuo,#customerExp{
+    margin-left: 320px;
+    margin-right: 210px;
+    background-color:white;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    border-radius: 10px;
+    padding-top: 10px;
+}
