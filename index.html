@@ -1,6 +1,9 @@
+<?php
+session_$start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><title>Customer Survery Form</title>
     <meta charset="UTF-8">
     <title>Customer Survey</title>
     <link rel="stylesheet" href="suvey.css">
@@ -24,6 +27,14 @@
 <!--    &lt;!&ndash; MDB core JavaScript &ndash;&gt;-->
 <!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>-->
 </head>
+<body>
+<form method="post" action="cust_response.php">
+
+    <?php
+
+
+
+    ?>
 <p>
 <div class="text1">
 
@@ -44,32 +55,32 @@
 
 <div class="div1">
     <p> 1. Which of our products or services do you use?</p>
-    <input class="check" type="checkbox" name="Deywuro" >Deywuro
-    <p><input class="check" type="checkbox" name="Kedebah">Kedebah</p>
-    <p><input class="check" type="checkbox" name="software">Software applications ie Website, Be-spoke applications</p>
-    <input class="check" type="checkbox" name="USSD">USSD
+    <input class="check" type="checkbox" name="product_service" value="Deywuro" >Deywuro
+    <p><input class="check" type="checkbox" name="product_service" value="Kedebah">Kedebah</p>
+    <p><input class="check" type="checkbox" name="product_service" value="software">Software applications ie Website, Be-spoke applications</p>
+    <input class="check" type="checkbox" name="product_service" value="USSD">USSD
 </div>
 <p></p>
 <div class="radio1">
     <p>2. When did you last called support to resolve a problem with the software<br>
     product you are using?</p>
-    <input type="radio" name = "aWeek">A week ago
-    <p><input type="radio" name="2Weeks">2 weeks ago</p>
-    <p><input type="radio" name="aMonth">A month ago</p>
-    <input type="radio" name="moreThanMonth">More than a month ago
+    <input type="radio" name="lastTimeCalled" value="oneWeek">A week ago
+    <p><input type="radio" name="lastTimeCalled" value="twoWeeks">2 weeks ago</p>
+    <p><input type="radio" name="lastTimeCalled" value="oneMonth">A month ago</p>
+    <input type="radio" name="lastTimeCalled" value="moreThanMonth">More than a month ago
 </div>
 <p><div class="oftenTech">
     <p> 3. How often do you call in for technical support on the product you using?</p>
-    <input type="radio" name="daily">Daily<br>
-   <input type="radio" name="weekly">Weekly<br>
-    <input type="radio" name="moreTnanWeek">More than weekly
+    <input type="radio" name="timesCalledForTechSup" value="daily">Daily<br>
+   <input type="radio" name="timesCalledForTechSup" value="weekly">Weekly<br>
+    <input type="radio" name="timesCalledForTechSup" value="moreTnanWeek">More than weekly
 </div>
 </p>
 
     <div class="techSupport">
 <p> 4. what are the nature of the technical support you require</p>
-    <input type="radio" name="errorOnPage">Error on the page<br>
-    <input type="radio" name="softwareStopped">software stopped functioning properly
+    <input type="radio" name="natureOfSupport" value="errorOnPage">Error on the page<br>
+    <input type="radio" name="natureOfSupport"  value="softwareStopped">software stopped functioning properly
 </div>
 </p>
 
@@ -81,7 +92,7 @@
 <br>
 
 
-<div style="margin-left: 18.5%">
+<div style="margin-left: 23.5%">
     &nbsp;  <label>1</label>
     &nbsp;&nbsp; <label>2</label>
      &nbsp;&nbsp; <label>3</label>
@@ -90,24 +101,24 @@
     &nbsp;&nbsp; <label>6</label>
     &nbsp;&nbsp; <label>7</label>
     &nbsp;&nbsp; <label>8</label>
-    &nbsp;&nbsp; <label>9</label>
+    &nbsp;&nbsp;&nbsp; <label>9</label>
     &nbsp;&nbsp; <label>10</label>
 </div>
 
 
     below 5 is not impressed
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
-    <input type="radio" name="one" value="1">
+    <input type="radio" name="howImpressed" value="1">
+    <input type="radio" name="howImpressed" value="2">
+    <input type="radio" name="howImpressed" value="3">
+    <input type="radio" name="howImpressed"value="4">
+    <input type="radio" name="howImpressed" value="5">
+    <input type="radio" name="howImpressed" value="6">
+    <input type="radio" name="howImpressed" value="7">
+    <input type="radio" name="howImpressed" value="8">
+    <input type="radio" name="howImpressed" value="9">
+    <input type="radio"name="howImpressed"value="10">
     above 5 communicates level of satisfsction<br>
-    <button class="buton1" style="margin-top:2em; margin-left: 80%">Clear selection</button>
+    <button class="buton1" name="levelOfSatisf" style="margin-top:2em; margin-left: 80%">Clear selection</button>
 </div>
 
 
@@ -117,11 +128,11 @@
 <p> 6. How likely are you to recommend the service to another </p>
     12345
     Below 2 you wouldn't <input type="radio" name="likelyOne">
-<input type="radio" name="likelyOne">
-<input type="radio" name="likelyOne">
-<input type="radio" name="likelyOne">
-<input type="radio" name="likelyOne">Above 2 communicates you would
-<button class="buton2">Clear selection</button>
+<input type="radio" name="likelyToRecomend" value="1" >
+<input type="radio" name="likelyToRecomend" value="2">
+<input type="radio" name="likelyToRecomend" value="3">
+<input type="radio" name="likelyToRecomend" value="4">Above 2 communicates you would
+<button class="buton2" name="recommend">Clear selection</button>
 
 </div>
 </p>
@@ -129,11 +140,7 @@
 <p>
     <div class="feedback">
 <p> 7. any other feedback you would want to give in relation to your product satisfaction?</p>
-<!--&lt;!&ndash;Material textarea&ndash;&gt;-->
-<!--<div class="md-form mb-4 pink-textarea active-pink-textarea">-->
-<!--    <textarea id="form18" class="md-textarea form-control" rows="3"></textarea>-->
-<!--    <label for="form18">Material textarea colorful on :focus state</label>-->
-<!--</div>-->
+    <textarea rows="3"  name="satFeedBack"></textarea>
 
 </div>
 </p>
@@ -147,43 +154,43 @@ This is to rate the experience you have had with the company's customer service
 <p>
     <div id="Nputuo">
     <p>1. For how long have you been using Nputuo's services and products?</p>
-<p><input type="radio"> 6 months and below</p>
-<p><input type="radio">Above 6 months to 1 year</p>
-<input type="radio">Above 1 year
-<p><button>Clear selection</button></p>
+<p><input type="radio" name="durationOfProductUsage" value="6 months"> 6 months and below</p>
+<p><input type="radio" name="durationOfProductUsage" value="above 6 months">Above 6 months to 1 year</p>
+<input type="radio" name="durationOfProductUsage" value="above 1 Year">Above 1 year
+<p><button name="useDuration">Clear selection</button></p>
 
 </div>
 </p>
 <p>
     <div id="easeOfUse">
     <p>2. How easy it is for you to use our products/services?</p>
-<p><input type="radio">Easy to adapt</p>
-<p><input type="radio">Not too easy but manageable</p>
-<p><input type="radio">Difficult</p>
-<input type="radio">Very difficult
-<p><button>Clear selection</button></p>
+<p><input type="radio" name="easeOfUsage" value="easyToAdapt">Easy to adapt</p>
+<p><input type="radio" name="easeOfUsage" value="notManageable">Not too easy but manageable</p>
+<p><input type="radio" name="easeOfUsage" value="notEasy">Difficult</p>
+<input type="radio" name="easeOfUsage" value="veryDiff">Very difficult
+<p><button value="easeOfUse">Clear selection</button></p>
 </div>
 </p>
 <p>
     <div class="waitingTime">
     <p>3. How long do you have to wait before you speak to a customer support executive<br>
 when you have issues?</p>
-<p><input type="radio">Immediately issues are experienced</p>
-<p><input type="radio">Appreciable time when issues are experienced</p>
-<input type="radio">Bad response time when issues are experienced
-<p><button>Clear selection</button></p>
+<p><input type="radio" name="waitingTime" value="immediately">Immediately issues are experienced</p>
+<p><input type="radio" name="waitingTime" value="delayed">Appreciable time when issues are experienced</p>
+<input type="radio" name="waitingTime" value="veryLate">Bad response time when issues are experienced
+<p><button name="waitingTime">Clear selection</button></p>
 </div>
 </p>
 <p>
     <div class="satisfaction">
     <p>4. How satisfied are you with how your most rescent service<br>
 related issue was resolved</p>
-<p><input type="radio">Satified</p>
-<p><input type="radio">Very satisfied</p>
-<p><input type="radio">Neutral</p>
-<p><input type="radio">Dissatisfied</p>
-<p><input type="radio">Very Dissatisfied</p>
-<button>Clear selection</button>
+<p><input type="radio" name="howSatisfied" value="satisfied">Satified</p>
+<p><input type="radio" name="howSatisfied" value="verySatisfied">Very satisfied</p>
+<p><input type="radio" name="howSatisfied" value="neutral">Neutral</p>
+<p><input type="radio" name="howSatisfied" value="dissatisfied">Dissatisfied</p>
+<p><input type="radio" name="howSatisfied" value="veryDisSatisfied">Very Dissatisfied</p>
+<button name="satisfaction">Clear selection</button>
 </div>
 
 </p>
@@ -198,6 +205,8 @@ related issue was resolved</p>
 <p>
     <div class="service">
     <p>Service:</p>
+<textarea placeholder="Feedback please!" name="service"></textarea>
+
 
 </div>
 
@@ -205,15 +214,19 @@ related issue was resolved</p>
 <p>
     <div class="innovation">
     <p>Innovation:</p>
+<textarea placeholder="Feedback please!" name="innovation"></textarea>
 </div>
 </p>
 
 <div id="team">
     <p>Team Spirit:</p>
+    <textarea placeholder="Feedback please!" name="teamSpirit"></textarea>
 </div>
+<p>
+    <button class="btSubmit" name="formSubmit">Submit</button>
+</p>
 
 
-
-
+</form>
 </body>
 </html>

@@ -61,3 +61,14 @@ textarea{
     border-radius: 10px;
     padding-top: 10px;
 }
+.btSubmit{
+    background-color: darkgreen;
+    margin-left: 320px;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    border-color: darkgreen;
+    color: white;
+    font-size: 20px;
+
+}
