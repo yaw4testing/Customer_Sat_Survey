@@ -16,6 +16,9 @@ function form_validation($param,$connection){
 
 
     $product_service = $param['product_service']  ?? null;
+
+//    var_dump($product_service);
+//    exit();
     $lastTimeCalled = $param['lastTimeCalled']  ?? null;
     $timesCalledForTechSup = $param['timesCalledForTechSup']  ?? null;
     $natureOfSupport = $param['natureOfSupport']  ?? null;
