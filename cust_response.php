@@ -16,16 +16,16 @@ function form_validation($param,$connection){
 
 
     $product_service = $param['product_service']  ?? null;
-    $lastTimeCalled = $param['lastTimeCalled'];
-    $timesCalledForTechSup = $param['timesCalledForTechSup'];
-    $natureOfSupport = $param['natureOfSupport'];
-    $howImpressed = $param['howImpressed'];
-    $likelyToRecomend =$param['likelyToRecomend'];
-   // $satFeedBack = $param['satFeedBack'];
+    $lastTimeCalled = $param['lastTimeCalled']  ?? null;
+    $timesCalledForTechSup = $param['timesCalledForTechSup']  ?? null;
+    $natureOfSupport = $param['natureOfSupport']  ?? null;
+    $howImpressed = $param['howImpressed']  ?? null;
+    $likelyToRecomend =$param['likelyToRecomend']  ?? null;
+    //$satFeedBack = $param['satFeedBack']  ?? null;
     //$durationOfProductUsage = $param['durationOfProductUsage'];
-    $easeOfUsage = $param['easeOfUsage'];
-    $waitingTime = $param['waitingTime'];
-    $howSatisfied = $param['howSatisfied'];
+    $easeOfUsage = $param['easeOfUsage']  ?? null;
+    $waitingTime = $param['waitingTime']  ?? null;
+    $howSatisfied = $param['howSatisfied']  ?? null;
     //$service =$param['service'];
    // $innovation=$param['innovation'];
     //$teamSpirit = $param['teamSpirit'];

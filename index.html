@@ -60,15 +60,15 @@ session_$start();
     <p><input class="check" type="checkbox" name="product_service" value="software">Software applications ie Website, Be-spoke applications</p>
    <p> <input class="check" type="checkbox" name="product_service" value="USSD">USSD
     </p>
-<!--    <input type="button" class="buttonClear" value="Clear Selection" style="margin-left: 80%;">-->
-<button style="margin-left: 80%">clear text</button>
+  <input type="button" onclick="resetMe();" value="Clear Selection" style="margin-left: 80%;">
     <script>
-        $("button").click(function () {
-            $("div1").empty();
-
-
-        });
+        function resetMe() {
+            var clearMe = document.getElementsByClassName("div1");
+            clearMe.innerHtml;
+            console.log("hello");
+        }
     </script>
+
 </div>
 <p></p>
 <div class="lastTimeCalled" >
