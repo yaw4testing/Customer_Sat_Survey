@@ -12,7 +12,10 @@ if(isset($_POST['formSubmit'])){
 
 //creating function to get user inputs
 function form_validation($param,$connection){
-    $product_service =$param['product_service'];
+
+
+
+    $product_service = $param['product_service']  ?? null;
     $lastTimeCalled = $param['lastTimeCalled'];
     $timesCalledForTechSup = $param['timesCalledForTechSup'];
     $natureOfSupport = $param['natureOfSupport'];
@@ -105,7 +108,7 @@ function form_validation($param,$connection){
 
 function customer_data_processing($db_connection){
 
-    $product_service =$_POST['product_service'];
+    $product_service = $_POST['product_service'];
     $lastTimeCalled = $_POST['lastTimeCalled'];
     $timesCalledForTechSup = $_POST['timesCalledForTechSup'];
     $natureOfSupport = $_POST['natureOfSupport'];
