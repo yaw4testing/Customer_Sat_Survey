@@ -1,7 +1,7 @@
 <?php
 require "db_connection.php";
 
-session_start();
+//session_start();
 
 if(isset($_POST['formSubmit'])){
     form_validation($_POST,$db_connection);
@@ -68,13 +68,13 @@ function form_validation($param,$connection){
         echo "please select an option";
     }
 
-    // validating how a long customer have used a product
-    if(isset($durationOfProductUsage)&& !empty($durationOfProductUsage)){
-        $durationOfProductUsage_validation_error = '';
-    }
-    else{
-        echo "please select an option";
-    }
+//    // validating how a long customer have used a product
+//    if(isset($durationOfProductUsage)&& !empty($durationOfProductUsage)){
+//        $durationOfProductUsage_validation_error = '';
+//    }
+//    else{
+//        echo "please select an option";
+//    }
 
     //validating the usability of a product or service
     if(isset($easeOfUsage)&& !empty($easeOfUsage)){
@@ -121,14 +121,20 @@ function customer_data_processing($db_connection){
     $teamSpirit = $_POST['teamSpirit'];
 
     //insert statement
-    $query_statement = "INSERT INTO customer_response(Product_Service,lastTimeCalled,timesCalledForTechSup,
+    $query_statement = "INSERT INTO customer_response(product_service,lastTimeCalled,timesCalledForTechSup,
 natureOfSupport,howImpressed,likelyToRecomend,satFeedBack,easeOfUsage,
 waitingTime,howSatisfied,service,innovation,teamSpirit) VALUES('$product_service','$lastTimeCalled',
 '$timesCalledForTechSup','$natureOfSupport','$howImpressed','$likelyToRecomend','$satFeedBack',
-,'$easeOfUsage','$waitingTime','$howSatisfied','$service',
+'$easeOfUsage','$waitingTime','$howSatisfied','$service',
 '$innovation','$teamSpirit')";
 
-    $insert = $db_connection->query($query_statement);
+    if( $db_connection->query($query_statement)===True){
+        echo "customer survey response successfully added";
+
+    }
+    else{
+        echo "Error:". $query_statement ."<br>" . $db_connection->error;
+    }
 
 }
 
