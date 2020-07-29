@@ -5,7 +5,6 @@ require "db_connection.php";
 
 if(isset($_POST['formSubmit'])){
     form_validation($_POST,$db_connection);
-    customer_data_processing($db_connection);
 }
 
 //creating session for all input elements
@@ -38,7 +37,7 @@ function form_validation($param,$connection){
             $product_service_validation_error ='';
     }
     else{
-        echo "Please select one or two options";
+        $product_service_validation_error = "Please select one or two options";
     }
 
     //validating the last time customer called for support
@@ -46,7 +45,7 @@ function form_validation($param,$connection){
         $lastTimeCalled_validation_error ='';
     }
     else{
-        echo "Please select one or two options";
+        $lastTimeCalled_validation_error = "Please select one or two options";
     }
 
     //validating how often does a customer call for support
@@ -54,7 +53,7 @@ function form_validation($param,$connection){
         $timesCalledForTechSup_validation_error='';
     }
     else{
-        echo "Please select one or two options";
+        $timesCalledForTechSup_validation_error = "Please select one or two options";
     }
 
     //validating nature of support given
@@ -62,7 +61,7 @@ function form_validation($param,$connection){
         $natureOfSupport_validation_error='';
     }
     else{
-        echo "please select an option";
+        $natureOfSupport_validation_error= "please select an option";
     }
 
     //validating how likely a customer would recommend a service or product
@@ -71,7 +70,7 @@ function form_validation($param,$connection){
 
     }
     else{
-        echo "please select an option";
+        $likelyToRecomend_validation_error= "please select an option";
     }
 
 //    // validating how a long customer have used a product
@@ -79,7 +78,7 @@ function form_validation($param,$connection){
 //        $durationOfProductUsage_validation_error = '';
 //    }
 //    else{
-//        echo "please select an option";
+//        $durationOfProductUsage_validation_error = "please select an option";
 //    }
 
     //validating the usability of a product or service
@@ -87,7 +86,7 @@ function form_validation($param,$connection){
         $easeOfUsage_validation_error = '';
     }
     else{
-        echo "please select an option";
+        $easeOfUsage_validation_error =  "please select an option";
     }
 
     //validating the waiting time for customer to be given support
@@ -95,7 +94,7 @@ function form_validation($param,$connection){
         $waitingTime_validation_error = '';
     }
     else{
-        echo "please select an option";
+        $waitingTime_validation_error =  "please select an option";
     }
 
     //validating the level of customer's satisfaction
@@ -103,28 +102,31 @@ function form_validation($param,$connection){
         $howSatisfied_validation_error = '';
     }
     else{
-        echo "please select an option";
+        $howSatisfied_validation_error =  "please select an option";
+    }
+    if(isset($param) && !empty($param)){
+        customer_data_processing($connection);
     }
 
 
 }
 
-function customer_data_processing($db_connection){
+function customer_data_processing($_connection){
 
-    $product_service = $_POST['product_service'];
-    $lastTimeCalled = $_POST['lastTimeCalled'];
-    $timesCalledForTechSup = $_POST['timesCalledForTechSup'];
-    $natureOfSupport = $_POST['natureOfSupport'];
-    $howImpressed = $_POST['howImpressed'];
-    $likelyToRecomend =$_POST['likelyToRecomend'];
-    $satFeedBack = $_POST['satFeedBack'];
+    $product_service = $_POST['product_service'] ?? Null ;
+    $lastTimeCalled = $_POST['lastTimeCalled'] ?? Null;
+    $timesCalledForTechSup = $_POST['timesCalledForTechSup'] ?? Null;
+    $natureOfSupport = $_POST['natureOfSupport'] ?? Null;
+    $howImpressed = $_POST['howImpressed'] ?? Null;
+    $likelyToRecomend =$_POST['likelyToRecomend'] ?? Null;
+    $satFeedBack = $_POST['satFeedBack'] ?? Null;
     //$durationOfProductUsage = $_POST['durationOfProductUsage'];
-    $easeOfUsage = $_POST['easeOfUsage'];
-    $waitingTime = $_POST['waitingTime'];
-    $howSatisfied = $_POST['howSatisfied'];
-    $service =$_POST['service'];
-    $innovation=$_POST['innovation'];
-    $teamSpirit = $_POST['teamSpirit'];
+    $easeOfUsage = $_POST['easeOfUsage'] ?? Null;
+    $waitingTime = $_POST['waitingTime'] ?? Null;
+    $howSatisfied = $_POST['howSatisfied'] ?? Null;
+    $service =$_POST['service'] ?? Null;
+    $innovation=$_POST['innovation'] ?? Null;
+    $teamSpirit = $_POST['teamSpirit'] ?? Null;
 
     //insert statement
     $query_statement = "INSERT INTO customer_response(product_service,lastTimeCalled,timesCalledForTechSup,
@@ -134,12 +136,12 @@ waitingTime,howSatisfied,service,innovation,teamSpirit) VALUES('$product_service
 '$easeOfUsage','$waitingTime','$howSatisfied','$service',
 '$innovation','$teamSpirit')";
 
-    if( $db_connection->query($query_statement)===True){
+    if( $_connection->query($query_statement)===True){
         echo "customer survey response successfully added";
 
     }
     else{
-        echo "Error:". $query_statement ."<br>" . $db_connection->error;
+        echo "Error:". $query_statement ."<br>" . $git_connection->error;
     }
 
 }

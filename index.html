@@ -96,22 +96,42 @@ session_$start();
     <p><input type="radio" name="lastTimeCalled" value="twoWeeks" >2 weeks ago</p>
     <p><input type="radio" name="lastTimeCalled" value="oneMonth" >A month ago</p>
     <p> <input type="radio" name="lastTimeCalled" value="moreThanMonth" >More than a month ago</p>
-       <input type="button"  onclick="resetLastTime();" value="Clear" style="margin-left: 80%;">
-
+       <input type="button"  onclick="resetLastTimeCalled()" value="Clear Selection" style="margin-left: 80%;">
+<script>
+        function resetLastTimeCalled() {
+                var lastTimeCall = $("[name='lastTimeCalled']");
+                lastTimeCall.prop('checked',false);
+        }
+</script>
 </div>
 <p><div class="oftenTech">
     <p> 3. How often do you call in for technical support on the product you using?</p>
-    <input type="radio" name="timesCalledForTechSup" value="daily">Daily<br>
-   <input type="radio" name="timesCalledForTechSup" value="weekly">Weekly<br>
-    <input type="radio" name="timesCalledForTechSup" value="moreTnanWeek">More than weekly
+    <p><input type="radio" class="check oftenTech-div" name="timesCalledForTechSup" value="daily">Daily</p>
+    <p> <input type="radio" class="check oftenTech-div" name="timesCalledForTechSup" value="weekly">Weekly</p>
+    <p><input type="radio" class="check oftenTech-div" name="timesCalledForTechSup" value="moreTnanWeek">More than weekly</p>
+    <input type="button"  onclick="oftenCalled();" value="Clear Selection" style="margin-left: 80%">
+    <script>
+        function oftenCalled() {
+            let oftenTk = $('.oftenTech-div');
+            oftenTk.prop('checked',false);
+
+        }
+    </script>
 </div>
 </p>
 
     <div class="techSupport">
 <p> 4. what are the nature of the technical support you require</p>
-    <input type="radio" name="natureOfSupport" value="errorOnPage">Error on the page<br>
-    <input type="radio" name="natureOfSupport"  value="softwareStopped">software stopped functioning properly
-</div>
+        <p> <input type="radio" name="natureOfSupport" value="errorOnPage">Error on the page</p>
+        <p> <input type="radio" name="natureOfSupport"  value="softwareStopped">software stopped functioning properly</p>
+        <input type="button"  onclick="typeOfSupport();" value="Clear Selection" style="margin-left: 80%">
+    <script>
+        function typeOfSupport() {
+            var supportType = $("[name = 'natureOfSupport']");
+            supportType.prop("checked",false);
+        }
+    </script>
+    </div>
 </p>
 
 <div class="howSatisfied">
@@ -137,18 +157,25 @@ session_$start();
 
 
     below 5 is not impressed
-    <input type="radio" name="howImpressed" value="1">
-    <input type="radio" name="howImpressed" value="2">
-    <input type="radio" name="howImpressed" value="3">
-    <input type="radio" name="howImpressed"value="4">
-    <input type="radio" name="howImpressed" value="5">
-    <input type="radio" name="howImpressed" value="6">
-    <input type="radio" name="howImpressed" value="7">
-    <input type="radio" name="howImpressed" value="8">
-    <input type="radio" name="howImpressed" value="9">
-    <input type="radio"name="howImpressed"value="10">
+    <input type="radio" class="hwIpm" name="howImpressed" value="1">
+    <input type="radio" class="hwIpm" name="howImpressed" value="2">
+    <input type="radio" class="hwIpm" name="howImpressed" value="3">
+    <input type="radio" class="hwIpm" name="howImpressed"value="4">
+    <input type="radio" class="hwIpm" name="howImpressed" value="5">
+    <input type="radio" class="hwIpm" name="howImpressed" value="6">
+    <input type="radio" class="hwIpm" name="howImpressed" value="7">
+    <input type="radio" class="hwIpm" name="howImpressed" value="8">
+    <input type="radio" class="hwIpm" name="howImpressed" value="9">
+    <input type="radio" class="hwIpm" name="howImpressed"value="10">
     above 5 communicates level of satisfsction<br>
-    <button class="buton1" name="levelOfSatisf" style="margin-top:2em; margin-left: 80%">Clear selection</button>
+    <input type="button" class="buton1" onclick="satisfactionLevel()" style="margin-top:2em; margin-left: 80%" value=" Clear selection">
+    <script>
+        function satisfactionLevel() {
+            let satLevel =$('.hwIpm');
+            satLevel.prop("checked",false)
+        }
+    </script>
+
 </div>
 
 
