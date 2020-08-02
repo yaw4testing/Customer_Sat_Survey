@@ -141,7 +141,7 @@ waitingTime,howSatisfied,service,innovation,teamSpirit) VALUES('$product_service
 
     }
     else{
-        echo "Error:". $query_statement ."<br>" . $git_connection->error;
+        echo "Error:". $query_statement ."<br>" . $_connection->error;
     }
 
 }

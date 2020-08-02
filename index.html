@@ -126,9 +126,14 @@ session_$start();
         <p> <input type="radio" name="natureOfSupport"  value="softwareStopped">software stopped functioning properly</p>
         <input type="button"  onclick="typeOfSupport();" value="Clear Selection" style="margin-left: 80%">
     <script>
+
         function typeOfSupport() {
-            var supportType = $("[name = 'natureOfSupport']");
-            supportType.prop("checked",false);
+            // var supportType = $("[name = 'natureOfSupport']");
+            // supportType.prop("checked",false);
+            $("[name = 'natureOfSupport']").click(function () {
+                $(' input').hide();
+                console.log("hello");
+            })
         }
     </script>
     </div>

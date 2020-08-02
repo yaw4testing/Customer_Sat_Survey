@@ -10,3 +10,8 @@ $db_connection = new mysqli($host,$username,$password,$database,$port);
         if($db_connection->connect_error){
             die("connection failed: ". $db_connection->connect_error);
         }
+
+//$db_connection = mysqli_connect($host,$username,$password,$database,$port);
+//        if(!$db_connection) {
+//            die("connection failed: " . mysqli_connect_error());
+//        }
