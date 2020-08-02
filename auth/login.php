@@ -1,7 +1,15 @@
 <?php
 session_start();
 require_once '../db_connection.php';
+
+//because there is no user sign up form, we prin the hash code in the browser and copied it to the database
+$hashPassword= password_hash("hello", PASSWORD_DEFAULT);
+
+//var_dump($hashPassword);
+//exit();
 process_data($db_connection);
+
+
 function process_data($connection){
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -17,22 +25,37 @@ function process_data($connection){
     }
 
     else{
-        //$getTableInfo = $connection->query("SELECT * FROM login WHERE username ='$username' and password='$password'");
-        $getTableInfo = $connection->query("show tables");
-       var_dump($getTableInfo);
-       exit();
+
+        $getTableInfo = $connection->query("select * from login where  username='$username'");
+        //$getTableInfo = $connection->query("show tables");
         $count = $getTableInfo->num_rows;
 
-        if($count >1){
-           while ($row = $getTableInfo->fetch_assoc($count)){
-               echo "login successful";
-           }
 
+        if($count ==1)
 
+        {       $results = $getTableInfo->fetch_assoc();
+                $password_hash = $results['password'];
+              // var_dump( $hashPassword=$getTableInfo->fetch_assoc());
+//               // exit();
+
+               if(password_verify($password,$password_hash)){
+                  // header("location:login.php");
+                   echo "login successful";
+               }
+
+               else{
+                   echo "password invalid";
+               }
         }
 
+
+
+
+
           else {
-              echo "Error: " . $getTableInfo . "<br>" . "0 results";
+              $field_error="invalid username or password";
+              $_SESSION['field_error']=$field_error;
+              header("location: index.php");
 
           }
     }
