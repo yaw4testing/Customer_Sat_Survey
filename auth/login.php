@@ -40,7 +40,7 @@ function process_data($connection){
 
                if(password_verify($password,$password_hash)){
                   // header("location:login.php");
-                   echo "login successful Yaw Badu";
+                   echo "login successful";
                }
 
                else{
